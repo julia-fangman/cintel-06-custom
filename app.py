@@ -93,7 +93,6 @@ with ui.layout_columns():
             ]
             return render.DataGrid(filtered_df()[cols], filters=True)
 
-
 @reactive.calc
 def filtered_df():
     filt_df = sns.load_dataset("titanic")
@@ -101,5 +100,3 @@ def filtered_df():
     filt_df = filt_df[filt_df["sex"].isin(input.sex())]
     filt_df = filt_df.loc[filt_df["age"] < input.age()]
     return filt_df
-
-
